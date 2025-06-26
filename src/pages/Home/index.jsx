@@ -35,7 +35,6 @@ function Home() {
     console.error(error)
   }
   if (isSuccess) {
-    console.log(data)
     const posts = data.data
     const handleClick = () => {
       console.info('You clicked the filter chip.')
@@ -108,9 +107,8 @@ function Home() {
               <CardActionArea sx={{ p: 0.5 }} component={Link} to={`/posts/${post.slug}`}>
                 <CardMedia component="img" height="140" image={post.postImg} alt="image" />
                 <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    Title: {post.title}
-                  </Typography>
+                  <Typography variant="h6">Title: {post.title}</Typography>
+                  <Typography variant="body1">Author: {post.author.name}</Typography>
                   <Typography variant="body2"> Description: {post.description}</Typography>
                   <Typography variant="body2"> {dayjs(post.publishedAt).format('MMM DD, YYYY')}</Typography>
                 </CardContent>

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-
+import dayjs from 'dayjs'
 import { useGetOnePostQuery } from '@/features/posts/postsAPI'
 import Comments from '@/components/Comments'
 import OrbitalSpin from '@/components/OrbitalSpin'
@@ -30,8 +30,20 @@ function Post() {
             <Typography gutterBottom variant="h6" component="div">
               Title: {postDetail.title}
             </Typography>
-            <Typography variant="body2"> Description: {postDetail.description}</Typography>
-            <Typography variant="body2"> Content: {postDetail.content}</Typography>
+            <Typography gutterBottom variant="body1">
+              Author: {postDetail.author.name}
+            </Typography>
+            <Typography gutterBottom variant="body2">
+              {' '}
+              Description: {postDetail.description}
+            </Typography>
+            <Typography gutterBottom variant="body2">
+              {' '}
+              Content: {postDetail.content}
+            </Typography>
+            <Typography gutterBottom variant="body2">
+              {dayjs(postDetail.publishedAt).format('MMM DD, YYYY')}
+            </Typography>
           </CardContent>
           <Comments postId={postDetail.id} comments={postDetail.comments} currentUserId={67}></Comments>
         </Card>

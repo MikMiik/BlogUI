@@ -1,6 +1,6 @@
 const config = {
   routes: {
-    home: '/home',
+    home: '/',
     postDetail: '/posts/:id',
     createPost: '/posts/create',
     editPost: '/posts/:id/edit',
